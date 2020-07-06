@@ -4,7 +4,7 @@ Code:
 
 Python
 
-'''
+```
 # dictionary
 class Solution:
     def twoSum(self, numbers, target):
@@ -16,13 +16,11 @@ class Solution:
             else:
                 return [dic[target-numbers[i]]+1,i+1]
 
-
 # two pointers
 class Solution:
     def twoSum(self, numbers, target):
         left = 0
         right = len(numbers)-1
-
         while left < right:
             if numbers[left] + numbers[right] == target:
                 return [left+1, right+1]
@@ -46,5 +44,5 @@ class Solution:
                     left = mid+1
                 else:
                     right = mid-1
-
-'''
+                                
+```
