@@ -1,6 +1,5 @@
 **167 Two Sum II - Input array is sorted.**
 
-
 **Python**
 
 ```
@@ -43,7 +42,7 @@ class Solution:
                     left = mid+1
                 else:
                     right = mid-1
-                                
+
 ```
 
 **15. 3Sum**
@@ -60,7 +59,7 @@ class Solution:
                 continue
             left = i+1
             right = len(nums)-1
-            
+
             while left < right:
                 if nums[left] + nums[right] == target:
                     ans.append([nums[i],nums[left],nums[right]])
@@ -76,3 +75,49 @@ class Solution:
                     right -= 1
         return ans
  ```
+
+ **16. 3Sum Closest**
+
+ **Python**
+ ```
+ class Solution:
+    def threeSumClosest(self, nums, target):
+        ans = float('Inf')
+        nums = sorted(nums)
+        for i in range(len(nums)-2):
+            left = i+1
+            right = len(nums)-1
+            while left < right:
+                cursum = nums[i] + nums[left] + nums[right]
+                if cursum == target:
+                    return target
+                elif cursum < target:
+                    left += 1
+                else:
+                    right -= 1
+                if abs(cursum-target) < abs(ans-target):
+                    ans = cursum
+
+        return ans
+```
+
+**259. 3Sum Smaller**
+
+**Python**
+```
+class Solution:
+    def threeSumSmaller(self, nums, target):
+        cnt = 0
+        nums = sorted(nums)
+        for i in range(len(nums)-2):
+            left = i+1
+            right = len(nums)-1
+            while left < right:
+                if nums[left] + nums[right] + nums[i] < target:
+                    cnt = cnt + right - left
+                    left += 1
+                else:
+                    right -= 1
+
+        return cnt
+```
