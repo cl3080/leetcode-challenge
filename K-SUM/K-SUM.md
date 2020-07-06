@@ -1,8 +1,7 @@
-167 Two Sum II - Input array is sorted [Easy]
+**167 Two Sum II - Input array is sorted.**
 
-Code:
 
-Python
+**Python**
 
 ```
 # dictionary
