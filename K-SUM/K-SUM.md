@@ -121,3 +121,38 @@ class Solution:
 
         return cnt
 ```
+
+**18. 4Sum**
+
+**Python**
+```
+class Solution:
+    def fourSum(self, nums, target):
+        nums = sorted(nums)
+        ans = []
+        
+        for i in range(len(nums)-3):
+            a = nums[i]
+            if i > 0 and nums[i-1] == nums[i]:
+                continue              
+            for j in range(i+1,len(nums)-2):
+                if j > i+1 and nums[j-1] == nums[j]:
+                    continue
+                b = nums[j]
+                left = j+1
+                right = len(nums)-1
+                while left < right:
+                    if nums[left] + nums[right] == target - (a+b):             
+                        ans.append([a,b,nums[left],nums[right]])
+                        left += 1
+                        while nums[left] == nums[left-1] and left < right:
+                            left += 1
+                        right -= 1
+                        while nums[right] == nums[right+1] and left < right:
+                            right -= 1
+                    elif nums[left] + nums[right] < target - (a+b):
+                        left += 1
+                    else:
+                        right -= 1
+        return ans
+```
