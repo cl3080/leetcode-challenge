@@ -43,3 +43,5 @@
  4. If the room is free, pop the current topmost element.
  5. Push the end time of the room to the min_heap.
  6. The length of the final min_heap is the number of minimum required rooms.
+
+ 
