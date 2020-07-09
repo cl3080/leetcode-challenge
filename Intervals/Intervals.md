@@ -44,4 +44,28 @@
  5. Push the end time of the room to the min_heap.
  6. The length of the final min_heap is the number of minimum required rooms.
 
- 
+ **56 Merge Intervals**
+
+ **Python**
+ ```
+ class Solution:
+    def merge(self, intervals):
+        intervals = sorted(intervals,key = lambda x:x[0])
+        merged = []
+        for interval in intervals:
+            if not merged or merged[-1][1] < interval[0]:
+                merged.append(interval)
+            else:
+                merged[-1][1] = max(merged[-1][1],interval[1])
+        return merged
+ ```
+
+**Algorithm**
+1. Sort intervals by its start
+2. If current start <= last end:
+       Merge intervals
+   else:
+       Insert a new interval
+
+Time complexity: O(nlogn)
+Space complexity: O(n)

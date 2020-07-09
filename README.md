@@ -17,4 +17,5 @@
 | Number | Problem | Level | Code |     
 | ----- | --- | -----|----|  
 | 252  | [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/)  |  Easy| Python|    
-| 253  | [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)  | Medium| Python|      
+| 253  | [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)  | Medium| Python|
+| 56  | [Merge Intervals](https://leetcode.com/problems/merge-intervals/)  | Medium| Python|       
