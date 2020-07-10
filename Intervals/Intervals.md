@@ -69,3 +69,54 @@
 
 Time complexity: O(nlogn)
 Space complexity: O(n)
+
+
+**57 Insert Interval**
+
+**Python**
+Solution 1:
+```
+class Solution:
+    def insert(self, intervals, newInterval):
+        intervals.append(newInterval)
+        intervals = sorted(intervals,key = lambda x: x[0])
+        
+        ans = []
+        for i in range(len(intervals)):
+            if not ans or ans[-1][1] < intervals[i][0]:
+                ans.append(intervals[i])
+            else:
+                ans[-1][1] = max(intervals[i][1],ans[-1][1])
+
+        return ans
+```
+Time complexity: O(nlogn)
+
+Solution 2:
+```
+class Solution:
+    def insert(self, intervals, newInterval):
+        new_start,new_end = newInterval
+        idx,n = 0,len(intervals)
+        output = []
+        while idx < n and intervals[idx][0] < new_start:
+            output.append(intervals[idx])
+            idx += 1
+
+        if not output or output[-1][1] < new_start:
+            output.append(newInterval)
+        else:
+            output[-1][1] = max(output[-1][1],new_end)
+
+        while idx < n:
+            interval = intervals[idx]
+            start,end = interval
+            idx += 1
+            if output[-1][1] < start:
+                output.append(interval)
+            else:
+                output[-1][1] = max(output[-1][1],end)
+
+        return output
+```
+Time complexity: O(n)
