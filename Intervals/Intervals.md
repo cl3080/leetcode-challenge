@@ -80,7 +80,7 @@ class Solution:
     def insert(self, intervals, newInterval):
         intervals.append(newInterval)
         intervals = sorted(intervals,key = lambda x: x[0])
-        
+
         ans = []
         for i in range(len(intervals)):
             if not ans or ans[-1][1] < intervals[i][0]:
@@ -120,3 +120,34 @@ class Solution:
         return output
 ```
 Time complexity: O(n)
+
+**352 Data Stream as Disjoint Intervals**
+
+**Python**
+```
+class SummaryRanges:
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.intervals = []
+        self.seen = set()
+
+    def addNum(self, val):
+        if val not in self.seen:
+            self.seen.add(val)
+            heapq.heappush(self.intervals,[val,val])
+
+    def getIntervals(self):
+        tmp = []
+        while self.intervals:
+            cur = heapq.heappop(self.intervals)
+            if tmp and cur[0] <= tmp[-1][1] + 1:
+                tmp[-1][1] = max(tmp[-1][1],cur[1])
+            else:
+                tmp.append(cur)
+
+        self.intervals = tmp
+        return self.intervals
+```
