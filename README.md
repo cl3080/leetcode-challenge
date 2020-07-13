@@ -21,3 +21,10 @@
 | 56  | [Merge Intervals](https://leetcode.com/problems/merge-intervals/)  | Medium| Python|       
 | 57  | [Insert Interval](https://leetcode.com/problems/insert-interval/)  | Hard| Python|
 | 352  | [Data Stream as Disjoint Intervals](https://leetcode.com/problems/data-stream-as-disjoint-intervals/)  | Hard| Python|
+
+### Arrays
+[Code](https://github.com/cl3080/leetcode-challenge/blob/master/Array/Array.md)
+  
+| Number | Problem | Level | Code |  
+| ----- | --- | -----|----|                 
+| 53  | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)  |  Easy| Python|         
