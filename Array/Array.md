@@ -70,3 +70,51 @@ class Solution:
             dp[i] = max(dp[i-1],0) + nums[i]            
         return max(dp)
 ```
+
+**78 Subsets**
+
+**Python**
+
+Solution 1: Cascading
+```
+class Solution:
+    def subsets(self, nums):
+        n = len(nums)
+        output = [[]]  
+        for num in nums:
+            output += [curr + [num] for curr in output]       
+        return output
+```
+
+Solution 2: dfs + backtracking
+```
+class Solution:
+    def subsets(self, nums):  
+        ans = []
+        def dfs(n,s,curr):
+            if len(curr) == n:
+                ans.append(curr.copy())
+                return
+
+            for i in range(s,len(nums)):
+                curr.append(nums[i])
+                dfs(n,i+1,curr)
+                curr.pop()
+
+        for i in range(len(nums)+1):
+            dfs(i,0,[])
+
+        return ans
+```
+
+Solution 3: Lexicographic (binary sorted) subsets
+```
+class Solution:
+    def subsets(self, nums):  
+        n = len(nums)
+        output = []
+        for i in range(2**n,2**(n+1)):
+            bitmask = bin(i)[3:]
+            output.append([nums[j] for j in range(n) if bitmask[j] == '1'])
+        return output
+```

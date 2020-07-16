@@ -24,7 +24,8 @@
 
 ### Arrays
 [Code](https://github.com/cl3080/leetcode-challenge/blob/master/Array/Array.md)
-  
+
 | Number | Problem | Level | Code |  
 | ----- | --- | -----|----|                 
-| 53  | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)  |  Easy| Python|         
+| 53  | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)  |  Easy| Python|  
+| 78  | [Subsets](https://leetcode.com/problems/subsets/)|  Medium| Python|        
