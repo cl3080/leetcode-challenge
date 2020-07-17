@@ -29,3 +29,5 @@
 | ----- | --- | -----|----|                 
 | 53  | [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)  |  Easy| Python|  
 | 78  | [Subsets](https://leetcode.com/problems/subsets/)|  Medium| Python|        
+| 90  | [Subsets II](https://leetcode.com/problems/subsets-ii/)  |  Medium| Python|  
+| 152  | [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)|  Medium| Python|

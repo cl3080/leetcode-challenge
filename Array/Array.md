@@ -118,3 +118,50 @@ class Solution:
             output.append([nums[j] for j in range(n) if bitmask[j] == '1'])
         return output
 ```
+
+**90 Subsets II**
+
+**Python**
+
+```
+class Solution:
+    def subsetsWithDup(self, nums):   
+        nums.sort()
+        res = []
+        self.dfs(nums,0,[],res)
+        return res
+
+    def dfs(self,nums,start,subset,res):
+        if subset not in res:
+            res.append(subset)
+        for i in range(start,len(nums)):
+            if i > start and nums[i] == nums[i-1]:
+                continue
+            self.dfs(nums,i+1,subset+[nums[i]],res)
+```
+
+**152 Maximum Product Subarray**
+
+**Python**
+
+Solution: dynamic programming
+
+```
+class Solution:
+    def maxProduct(self, nums):
+        if len(nums) == 0:
+            return 0
+
+        max_so_far = nums[0]
+        min_so_far = nums[0]
+        result = max_so_far
+
+        for i in range(1,len(nums)):
+            curr = nums[i]
+            temp_max = max(curr,curr*max_so_far, curr*min_so_far)
+            min_so_far = min(curr,max_so_far*curr, curr*min_so_far)
+            max_so_far = temp_max
+            result = max(max_so_far, result)
+
+        return result
+```
