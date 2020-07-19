@@ -211,3 +211,23 @@ class Solution:
                 ans.append(str(start) + '->' + str(end))      
         return ans
 ```
+
+**325 Maximum Size Subarray Sum Equals K**
+
+**Python**
+```
+class Solution:
+    def maxSubArrayLen(self, nums, k):
+        dic = {0:-1}
+        maxlen = 0
+        summ = 0
+
+        for i in range(len(nums)):
+            summ = summ + nums[i]
+            if summ - k in dic and i-dic[summ-k] > maxlen:
+                maxlen = i - dic[summ-k]
+            if summ not in dic:
+                dic[summ] = i
+
+        return maxlen
+```
