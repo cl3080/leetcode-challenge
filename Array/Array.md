@@ -166,7 +166,7 @@ class Solution:
         return result
 ```
 
-**228. Summary Ranges**
+**228 Summary Ranges**
 
 **Python**
 
@@ -190,5 +190,24 @@ class Solution:
                 ans.append(curr)
                 i += 1
 
+        return ans
+```
+
+**163 Missing Ranges***
+
+**Python**
+```
+class Solution:
+    def findMissingRanges(self, nums, lower, upper):
+        nums = [lower-1] + nums + [upper+1]
+        ans = []
+        for i in range(1,len(nums)):
+            diff = nums[i] - nums[i-1]
+            if diff == 2:
+                ans.append(str(nums[i-1]+1))
+            elif diff > 2:
+                start = nums[i-1]+1
+                end = nums[i]-1
+                ans.append(str(start) + '->' + str(end))      
         return ans
 ```

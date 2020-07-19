@@ -32,3 +32,4 @@
 | 90  | [Subsets II](https://leetcode.com/problems/subsets-ii/)  |  Medium| Python|  
 | 152  | [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)|  Medium| Python|
 | 228  | [Summary Ranges](https://leetcode.com/problems/summary-ranges/)|  Medium| Python|
+| 163  | [Missing Ranges](https://leetcode.com/problems/missing-ranges/)|  Medium| Python|
