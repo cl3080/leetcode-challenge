@@ -165,3 +165,30 @@ class Solution:
 
         return result
 ```
+
+**228. Summary Ranges**
+
+**Python**
+
+Solution: two pointers
+```
+class Solution:
+    def summaryRanges(self, nums):
+        ans = []
+        i,j = 0,0
+        while i < len(nums):
+            j = i
+
+            while i + 1 < len(nums) and nums[i+1] == nums[i] +1:
+                i += 1     
+            if i == j:
+                curr = str(nums[i])
+                ans.append(curr)
+                i += 1
+            else:
+                curr = str(nums[j]) + "->" + str(nums[i])
+                ans.append(curr)
+                i += 1
+
+        return ans
+```
