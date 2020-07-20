@@ -34,3 +34,4 @@
 | 228  | [Summary Ranges](https://leetcode.com/problems/summary-ranges/)|  Medium| Python|
 | 163  | [Missing Ranges](https://leetcode.com/problems/missing-ranges/)|  Medium| Python|
 | 325  | [Maximum Size Subarray Sum Equals K](https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/)|  Medium| Python|
+| 209  | [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)|  Medium| Python|

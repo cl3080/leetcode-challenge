@@ -231,3 +231,83 @@ class Solution:
 
         return maxlen
 ```
+
+**209 Minimum Size Subarray Sum **
+
+**Python**
+
+Solution 1: Brute Force
+```
+class Solution:
+    def minSubArrayLen(self, s, nums):
+        length  = len(nums)
+        if length == 0:
+            return 0
+        ans = float('inf')
+        summ = [length for i in range(len(nums))]
+        summ[0] = nums[0]
+        for i in range(1,len(nums)):
+            summ[i] = summ[i-1] + nums[i]
+
+        for i in range(len(nums)):
+            for j in range(i,len(nums)):
+                cur_summ = summ[j] - summ[i] + nums[i]
+                if cur_summ >= s:
+                    ans = min(ans,j-i+1)
+                    break
+
+        if ans == float('inf'):
+            return 0
+        else:
+            return ans
+```
+
+Solution 2: Two pointers
+```
+class Solution:
+    def minSubArrayLen(self, s, nums):
+        left = 0
+        ans = float('inf')  
+        summ = 0
+
+        for i in range(len(nums)):
+            summ = summ + nums[i]
+            while summ >= s:
+                ans = min(i-left+1,ans)
+                summ = summ - nums[left]
+                left += 1
+
+        if ans == float('inf'): return 0
+        return ans
+```
+
+Solution 3: Binary Search
+```
+class Solution:
+    def minSubArrayLen(self, s nums):
+        size = len(nums)
+        res = float('inf')
+        summ = [0 for i in range(size+1)]
+        for i in range(1,size+1):
+            summ[i] = summ[i-1] + nums[i-1]
+        for i in range(size):
+            left = i+1
+            right = size
+            t = summ[i] + s
+            while left <= right:
+                mid = left + (right - left)//2
+                if summ[mid] < t:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+
+            if left == size+1:
+                break
+
+            res = min(res,left-i)        
+
+        if res == float('inf'):
+            return 0
+        else:
+            return res
+```
