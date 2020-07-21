@@ -311,3 +311,109 @@ class Solution:
         else:
             return res
 ```
+
+**238 Product of Array Except Self**
+```
+class Solution:
+    def productExceptSelf(self, nums):
+        left = [1 for i in range(len(nums))]
+        right = [1 for i in range(len(nums))]
+
+        for i in range(1,len(nums)):
+            left[i] = left[i-1]*nums[i-1]
+
+        for i in range(len(nums)-2,-1,-1):
+            right[i] = right[i+1]*nums[i+1]
+
+        ans = []
+        for i in range(len(nums)):
+            curr = right[i]*left[i]
+            ans.append(curr)
+
+        return ans
+```
+
+
+Solution 2: O(1) Space
+```
+class Solution:
+    def productExceptSelf(self, nums):
+        ans = [1 for i in range(len(nums))]
+
+        for i in range(1,len(nums)):
+            ans[i] = ans[i-1]*nums[i-1]
+
+        R = 1
+        for i in range(len(nums)-1,-1,-1):
+            ans[i] = R*ans[i]
+            R = nums[i]*R
+
+        return ans
+```
+
+**239 Sliding Window Maximum**
+
+Solution 1: Priority Queue
+```
+class Solution:
+    def maxSlidingWindow(self, nums, k):
+        from collections import deque
+        n = len(nums)
+        if n*k == 0: return []
+        if k == 1: return nums
+
+        def clean_deque(i):
+            if deq and deq[0] == i-k:
+                deq.popleft()
+
+            while deq and nums[i] > nums[deq[-1]]:
+                deq.pop()
+
+            deq.append(i)
+
+        deq = deque()
+        max_idx = 0
+        ans = []
+        for i in range(k):
+            clean_deque(i)
+            if nums[i] > nums[max_idx]:
+                max_idx = i
+        ans.append(nums[max_idx])
+
+        for i in range(k,n):
+            clean_deque(i)
+            ans.append(nums[deq[0]])
+
+        return ans
+```
+
+Solution 2: Dynamics programming
+```
+class Solution:
+    def maxSlidingWindow(self, nums, k):
+        n = len(nums)
+        if n*k == 0: return []
+        if k == 1: return nums
+
+        left = [0]*n
+        left[0] = nums[0]
+        right = [0]*n
+        right[-1] = nums[-1]
+        for i in range(1,n):
+            if i%k == 0:
+                left[i] = nums[i]
+            else:
+                left[i] = max(left[i-1],nums[i])
+
+            j = n-i-1
+            if (j+1)%k == 0:
+                right[j] = nums[j]
+            else:
+                right[j] = max(right[j+1],nums[j])
+
+        output = []
+        for i in range(n-k+1):
+            output.append(max(left[i+k-1],right[i]))
+
+        return output
+```
