@@ -36,3 +36,13 @@
 | 325  | [Maximum Size Subarray Sum Equals K](https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/)|  Medium| Python|
 | 209  | [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)|  Medium| Python|
 | 238  | [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)|  Medium| Python|
+| 128  | [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/)|  Hard| Python|
+| 239  | [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)|  Hard| Python|
+
+### Rotate
+[Code](https://github.com/cl3080/leetcode-challenge/blob/master/Rotate/Rotate.md)
+| Number | Problem | Level | Code |  
+| ----- | --- | -----|----|                 
+| 48  | [Rotate Image](https://leetcode.com/problems/rotate-image/)  | Medium| Python|  
+| 33  | [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)  | Medium| Python|  
+| 81  | [Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/)  | Medium| Python|  
